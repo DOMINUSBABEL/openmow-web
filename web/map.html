@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenMoW-Web · Visor de mapa</title>
+    <style>
+      html, body {
+        margin: 0;
+        height: 100%;
+        background: #0d1217;
+        color: #d8dee6;
+        font: 13px/1.4 system-ui, -apple-system, sans-serif;
+        overflow: hidden;
+      }
+      #hud {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        background: rgba(13, 18, 24, 0.85);
+        border: 1px solid #233142;
+        padding: 10px 14px;
+        border-radius: 6px;
+        max-width: 500px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 100;
+      }
+      #hud form { display: flex; gap: 6px; margin-bottom: 6px; }
+      #hud input {
+        flex: 1;
+        background: #18222d;
+        color: #e2e8f0;
+        border: 1px solid #334458;
+        padding: 5px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+      }
+      #hud button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        padding: 5px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+      }
+      #hud button:hover { background: #1d4ed8; }
+      #status {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+        line-height: 1.5;
+        white-space: pre-wrap;
+        color: #94a3b8;
+      }
+      #debug-overlay {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        background: rgba(13, 18, 24, 0.85);
+        border: 1px solid #233142;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+        color: #38bdf8;
+        pointer-events: none;
+        z-index: 100;
+      }
+      #help {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: rgba(13, 18, 24, 0.7);
+        border: 1px solid #233142;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 11px;
+        color: #64748b;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hud">
+      <form id="f">
+        <input id="mission" spellcheck="false" placeholder="Ruta de misión (ej. map/single/01_usa-skirmish/01_usa-overlord)" />
+        <button type="submit">Cargar</button>
+      </form>
+      <div id="status">Iniciando…</div>
+    </div>
+    <div id="help">
+      [WASD] Desplazar cámara &bull; [Q / E] Rotar &bull; [Rueda] Zoom &bull; [Clic Der/Med] Arrastre
+    </div>
+    <div id="debug-overlay">FPS: …</div>
+    <script type="module" src="/src/tools/map.ts"></script>
+  </body>
+</html>

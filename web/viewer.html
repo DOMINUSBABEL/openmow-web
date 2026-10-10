@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenMoW-Web · Visor de modelos</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #10161d; color: #d8dee6; font: 13px/1.4 system-ui, sans-serif; overflow: hidden; }
+      #hud { position: fixed; top: 8px; left: 8px; background: rgba(10, 14, 20, .75); padding: 8px 10px; border-radius: 6px; max-width: 46vw; }
+      #hud input { width: 420px; max-width: 40vw; background: #1b2430; color: inherit; border: 1px solid #2c3a4a; padding: 4px 6px; }
+      #status { margin-top: 6px; white-space: pre-wrap; color: #9fb0c2; }
+    </style>
+  </head>
+  <body>
+    <div id="hud">
+      <form id="f">
+        <input id="model" spellcheck="false" />
+        <button>Cargar</button>
+        <select id="anim-select">
+          <option value="none">Anim: Ninguna (Pose base)</option>
+          <option value="idle">Anim: Idle</option>
+          <option value="walk">Anim: Walk</option>
+          <option value="run">Anim: Run</option>
+          <option value="crouch">Anim: Crouch</option>
+          <option value="prone">Anim: Prone</option>
+          <option value="shoot">Anim: Shoot</option>
+          <option value="die">Anim: Die</option>
+        </select>
+      </form>
+      <div id="status">…</div>
+    </div>
+    <script type="module" src="/src/tools/viewer.ts"></script>
+  </body>
+</html>
