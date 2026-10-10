@@ -1,0 +1,127 @@
+--- 1. Searching for ballistics definitions ---
+Candidates (71):
+   /entity/-vehicle/marine/x/afp_x/damage.mtl
+   /entity/-vehicle/marine/x/afp_xx/damage.mtl
+   /entity/landscape/nature/x/ice_block01_p01_x/ice_damaged.mtl
+   /entity/landscape/nature/x/ice_block01_p02_x/ice_damaged.mtl
+   /entity/landscape/nature/x/ice_block01_p03_x/ice_damaged.mtl
+   /entity/landscape/nature/x/ice_block01_p04_x/ice_damaged.mtl
+   /entity/landscape/nature/x/ice_block01_p05_x/ice_damaged.mtl
+   /entity/landscape/nature/x/ice_block01_p06_x/ice_damaged.mtl
+   /entity/landscape/nature/x/ice_block01_p07_x/ice_damaged.mtl
+   /entity/landscape/nature/x/ice_block01_p08_x/ice_damaged.mtl
+   /entity/landscape/nature/x/ice_block01_p09_x/ice_damaged.mtl
+   /entity/landscape/nature/x/ice_block01_p10_x/ice_damaged.mtl
+   /entity/landscape/nature/x/ice_block01_p11_x/ice_damaged.mtl
+   /entity/landscape/nature/x/ice_block01_p12_x/ice_damaged.mtl
+   /entity/landscape/nature/x/ice_block01_p13_x/ice_damaged.mtl
+
+--- 2. Checking set/stuff categories ---
+Stuff dirs: ['/set/stuff', '/set/stuff/_settings', '/set/stuff/ammo', '/set/stuff/bazooka', '/set/stuff/body', '/set/stuff/bombing', '/set/stuff/capacity', '/set/stuff/content', '/set/stuff/explosive', '/set/stuff/flame', '/set/stuff/grenade', '/set/stuff/grenade/00 grenade_smoke', '/set/stuff/grenade/01 grenade_ap', '/set/stuff/grenade/02 grenade_at', '/set/stuff/gun']
+
+--- 3. Inspecting sample ammo files ---
+Total .ammo files: 125
+Matches for rifle: ['/set/stuff/ammo/rifle.ammo', '/set/stuff/ammo/rifle_grenade.ammo', '/set/stuff/ammo/rifle_grenade_at.ammo']
+--- Content of /set/stuff/ammo/rifle.ammo ---
+{bullet
+	{tag "bullet stackable pierce"}
+	{inventory
+		{weight 4}
+		{block 25}
+		{size 1 1}
+		{fsm "belt"}
+	}	
+	{mass 0.015}
+	{entity "rifle_cartridge"}
+	{trace
+		{view "/texture/fx/trace2"
+			{ScaleY 0.12}
+			{Light 1}
+		}
+		{length 6}
+	}
+}
+
+...
+Matches for bullet75: ['/set/stuff/shell/bullet75.ap.ammo', '/set/stuff/shell/bullet75.apcr.ammo', '/set/stuff/shell/bullet75.fg.ammo']
+--- Content of /set/stuff/shell/bullet75.ap.ammo ---
+{from "pattern ap"
+	{tag "big" "size_small" "shell_medium" "pierce"}
+	{inventory
+		{size 5 1}
+	}
+	{mass 11.9}
+	("ap" args 0.78)
+	{entity "shell_ap_75"}
+}
+
+...
+Matches for bullet88: ['/set/stuff/shell/bullet88.ap.ammo', '/set/stuff/shell/bullet88.apcr.ammo', '/set/stuff/shell/bullet88.fg.ammo']
+--- Content of /set/stuff/shell/bullet88.ap.ammo ---
+{from "pattern ap"
+	{tag "big" "size_small" "shell_big" "pierce"}
+	{inventory
+		{size 5 1}
+	}
+	{mass 15.5}
+	("ap" args 0.9)
+	{entity "shell_ap_88"}
+}
+
+...
+
+--- 4. Inspecting sample weapon files ---
+--- Content of /set/stuff/rifle/garand ---
+{from "pattern rifle"
+	{tag "autorifle"}
+	{filling "ammo rifle" 8}
+	{entity "garand"}
+	{fireSound "rifle/m1_shot"}
+	{reloadSound "garand/m1"}
+	
+	{Automatic}
+	{healthDamage 160}
+	{recoveryTime 0.4}
+	("accuracy_automatic_rifle")
+	("speed" s(853))
+}
+
+/set/stuff/rifle/m9130 not found. Alternative matches: []
+/set/stuff/rifle/k98 not found. Alternative matches: []
+--- Content of /set/stuff/gun/88mm_kwk36 ---
+{from "pattern gun"		; "pz6e"
+	{filling "bullet88"}
+	{fireSound "gun/85to100_cal/88mm_kwk36"}
+	{reloadSound "tankgun_r04"}
+	{rechargeTime 6}	    
+	("range_long")
+	
+	("speed" s(800))
+	("caliber_large")
+	{projectileDamage 139}	
+	("damage2" a(139) b(127) c(115) d(105) e(97))
+	{parameters "apcr"
+        ("damage2" a(164) b(147) c(130) d(115) e(103))
+	}
+
+	("accuracy_high")
+}
+--- Content of /set/stuff/gun/75mm_m3 ---
+{from "pattern gun"		; "m4a3"
+	{filling "bullet75"}
+	{fireSound "gun/50to76_cal/75mm_m3"}
+	{reloadSound "gun_r00"}
+	{rechargeTime 6}
+	("range_short")
+	
+	("speed" s(619))
+	("caliber_medium")
+	{projectileDamage 102}
+	("damage" a(102) b(84) c(68) d(54) e(44))
+	{parameters "apcr"
+        ("damage" a(127) b(104) c(83) d(64) e(49))
+	}
+	
+	("accuracy_minimum")
+}
+

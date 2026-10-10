@@ -1,0 +1,286 @@
+===== locomotion /properties/airborne.ext
+(define "locomotion"
+
+	{StartTime	5	}		; óÓÑ¼´ Óáºú«¡á ñ« ¼á¬ß. ß¬«Ó«ßÔ¿ ß 0, seconds
+
+	{BrakeTime	2	}		; óÓÑ¼´ Ô«Ó¼«ªÑ¡¿´ ß ¼á¬ß. ß¬«Ó«ßÔ¿ ñ« 0, seconds
+
+	{StopTime	4	}		; óÓÑ¼´ «ßÔá¡«ó¬¿ »«ß½Ñ «Ô¬½¯þÑ¡¿´ ñó¿úáÔÑ½´ ß ¼á¬ß. ß¬«Ó«ßÔ¿ ñ« 0, seconds
+
+	{SteerOn	15}			; ß¬«Ó«ßÔý »«ó«Ó«Ôá ¬«½Ñß, úÓáñÒß«ó ó ßÑ¬Ò¡ñÒ
+
+	{SteerOff	15}         ; ß¬«Ó«ßÔý ó«ºóÓáÔá ¬«½Ñß ó ¿ßÕ. ß«ßÔ«´¡¿Ñ, úÓáñÒß«ó ó ßÑ¬Ò¡ñÒ
+
+	{SplineRadius 5}		; «úÓá¡¿þÑ¡¿Ñ Óáñ¿Òßá »«ó«Ó«Ôá ¡á ß»½á®¡áÕ, ¼ÑÔÓ«ó
+
+)
+===== locomotion /properties/armoredcar.ext
+(define "locomotion"
+
+    {MaxSpeed   25  }       ; ¼á¬ß¿¼á½ý¡á´ ß¬«Ó«ßÔý, kmph
+
+    {StartTime  15  }       ; óÓÑ¼´ Óáºú«¡á ñ« ¼á¬ß. ß¬«Ó«ßÔ¿ ß 0, seconds
+
+    {maxSpeedAtMaxTurn 15}
+
+    {BrakeTime  2   }       ; óÓÑ¼´ Ô«Ó¼«ªÑ¡¿´ ß ¼á¬ß. ß¬«Ó«ßÔ¿ ñ« 0, seconds
+
+    {StopTime   4   }       ; óÓÑ¼´ «ßÔá¡«ó¬¿ »«ß½Ñ «Ô¬½¯þÑ¡¿´ ñó¿úáÔÑ½´ ß ¼á¬ß. ß¬«Ó«ßÔ¿ ñ« 0, seconds
+
+    {TurnRadius 8   }       ; ¼¿¡. Óáñ¿Òß Óáºó«Ó«Ôá, meter
+
+    {Gears      0.1 0.5 0.8 1.0} ; »ÑÓÑñáÔ«þ¡ÙÑ ¬«Ýõ-ÔÙ ¬«Ó«í¬¿ »ÑÓÑñáþ
+
+    {RearGears  0.35}       ; »ÑÓÑñáÔ«þ¡ÙÑ ¬«Ýõ-ÔÙ ¬«Ó«í¬¿ »ÑÓÑñáþ
+
+    {SteerOn    20}         ; ß¬«Ó«ßÔý »«ó«Ó«Ôá ¬«½Ñß, úÓáñÒß«ó ó ßÑ¬Ò¡ñÒ
+
+    {SteerOff   40}         ; ß¬«Ó«ßÔý ó«ºóÓáÔá ¬«½Ñß ó ¿ßÕ. ß«ßÔ«´¡¿Ñ, úÓáñÒß«ó ó ßÑ¬Ò¡ñÒ
+
+    {SplineRadius 3}        ; «úÓá¡¿þÑ¡¿Ñ Óáñ¿Òßá »«ó«Ó«Ôá ¡á ß»½á®¡áÕ, ¼ÑÔÓ«ó
+
+)
+===== armor_heavy /properties/cannon_armor.ext
+(define "armor_heavy"
+
+	("armor_cannon" tur(7) t_thr(7) t_dur(20) s(10) b(10) w(14))
+
+)
+===== locomotion /properties/car.ext
+(define "locomotion"
+
+	{MaxSpeed	25	}		; ¼á¬ß¿¼á½ý¡á´ ß¬«Ó«ßÔý, kmph
+
+	{StartTime	15	}		; óÓÑ¼´ Óáºú«¡á ñ« ¼á¬ß. ß¬«Ó«ßÔ¿ ß 0, seconds
+
+	{maxSpeedAtMaxTurn 15}
+
+	{BrakeTime	2	}		; óÓÑ¼´ Ô«Ó¼«ªÑ¡¿´ ß ¼á¬ß. ß¬«Ó«ßÔ¿ ñ« 0, seconds
+
+	{StopTime	4	}		; óÓÑ¼´ «ßÔá¡«ó¬¿ »«ß½Ñ «Ô¬½¯þÑ¡¿´ ñó¿úáÔÑ½´ ß ¼á¬ß. ß¬«Ó«ßÔ¿ ñ« 0, seconds
+
+	{TurnRadius	8	}		; ¼¿¡. Óáñ¿Òß Óáºó«Ó«Ôá, meter
+
+	{Gears		0.1 0.5 0.8 1.0} ; »ÑÓÑñáÔ«þ¡ÙÑ ¬«Ýõ-ÔÙ ¬«Ó«í¬¿ »ÑÓÑñáþ
+
+	{RearGears	0.35}	; »ÑÓÑñáÔ«þ¡ÙÑ ¬«Ýõ-ÔÙ ¬«Ó«í¬¿ »ÑÓÑñáþ
+
+	{SteerOn	20}			; ß¬«Ó«ßÔý »«ó«Ó«Ôá ¬«½Ñß, úÓáñÒß«ó ó ßÑ¬Ò¡ñÒ
+
+	{SteerOff	40}         ; ß¬«Ó«ßÔý ó«ºóÓáÔá ¬«½Ñß ó ¿ßÕ. ß«ßÔ«´¡¿Ñ, úÓáñÒß«ó ó ßÑ¬Ò¡ñÒ
+
+	{SplineRadius 1}		; «úÓá¡¿þÑ¡¿Ñ Óáñ¿Òßá »«ó«Ó«Ôá ¡á ß»½á®¡áÕ, ¼ÑÔÓ«ó
+
+)
+===== armor_heavy /properties/construction_generic.inc
+(define "armor_heavy"
+
+	("armor_construction" calibre(30))	; guns only
+
+	{armor
+
+		{setting "body"
+
+			{threshold  
+
+				{blast {value 10}}	; 57mm fg protection
+
+			}
+
+			{durability 
+
+				{blast {value 40}}	; will broke down after 3-4 hits by 75mm fg
+
+				{pierce {value 800}}			
+
+			}
+
+		}
+
+		{setting "roof"
+
+			{threshold 
+
+				{blast {value 6}}
+
+			}
+
+			{durability 
+
+				{blast {value 10}}	; will broke down after 1 hit by mortar
+
+				{pierce {value 100}}			
+
+			}
+
+		}
+
+	}
+
+)
+===== armor_heavy /properties/marine.ext
+(define "armor_heavy"
+
+	("armor_marine" b(85) k(%0))
+
+)
+===== locomotion /properties/marine.ext
+(define "locomotion"
+
+	{MaxSpeed	25	}		; ¼á¬ß¿¼á½ý¡á´ ß¬«Ó«ßÔý, kmph
+
+	{StartTime	10	}		; óÓÑ¼´ Óáºú«¡á ñ« ¼á¬ß. ß¬«Ó«ßÔ¿ ß 0, seconds
+
+	{BrakeTime	2	}		; óÓÑ¼´ Ô«Ó¼«ªÑ¡¿´ ß ¼á¬ß. ß¬«Ó«ßÔ¿ ñ« 0, seconds
+
+	{StopTime	4	}		; óÓÑ¼´ «ßÔá¡«ó¬¿ »«ß½Ñ «Ô¬½¯þÑ¡¿´ ñó¿úáÔÑ½´ ß ¼á¬ß. ß¬«Ó«ßÔ¿ ñ« 0, seconds
+
+	{TurnRadius	8	}		; ¼¿¡. Óáñ¿Òß Óáºó«Ó«Ôá, meter
+
+	{SplineRadius 3	}		; «úÓá¡¿þÑ¡¿Ñ Óáñ¿Òßá »«ó«Ó«Ôá ¡á ß»½á®¡áÕ, ¼ÑÔÓ«ó
+
+	{SteerOn	20	}
+
+	{SteerOff	40	}
+
+	{Gears 0.5 0.7 1.0} ; »ÑÓÑñáÔ«þ¡ÙÑ ¬«Ýõ-ÔÙ ¬«Ó«í¬¿ »ÑÓÑñáþ
+
+	{RearGears 0.15 0.3} ; »ÑÓÑñáÔ«þ¡ÙÑ ¬«Ýõ-ÔÙ ¬«Ó«í¬¿ »ÑÓÑñáþ
+
+)
+===== locomotion /properties/moto.ext
+(define "locomotion"
+
+	{MaxSpeed	25	}		; ¼á¬ß¿¼á½ý¡á´ ß¬«Ó«ßÔý, kmph
+
+	{StartTime	10	}		; óÓÑ¼´ Óáºú«¡á ñ« ¼á¬ß. ß¬«Ó«ßÔ¿ ß 0, seconds
+
+	{BrakeTime	2	}		; óÓÑ¼´ Ô«Ó¼«ªÑ¡¿´ ß ¼á¬ß. ß¬«Ó«ßÔ¿ ñ« 0, seconds
+
+	{StopTime	4	}		; óÓÑ¼´ «ßÔá¡«ó¬¿ »«ß½Ñ «Ô¬½¯þÑ¡¿´ ñó¿úáÔÑ½´ ß ¼á¬ß. ß¬«Ó«ßÔ¿ ñ« 0, seconds
+
+	{TurnRadius	8	}		; ¼¿¡. Óáñ¿Òß Óáºó«Ó«Ôá, meter
+
+	{Gears		0.35 0.5 0.7 1.0} ; »ÑÓÑñáÔ«þ¡ÙÑ ¬«Ýõ-ÔÙ ¬«Ó«í¬¿ »ÑÓÑñáþ
+
+	{RearGears	0.33 0.5}	; »ÑÓÑñáÔ«þ¡ÙÑ ¬«Ýõ-ÔÙ ¬«Ó«í¬¿ »ÑÓÑñáþ
+
+	{SteerOn	20}			; ß¬«Ó«ßÔý »«ó«Ó«Ôá ¬«½Ñß, úÓáñÒß«ó ó ßÑ¬Ò¡ñÒ
+
+	{SteerOff	40}         ; ß¬«Ó«ßÔý ó«ºóÓáÔá ¬«½Ñß ó ¿ßÕ. ß«ßÔ«´¡¿Ñ, úÓáñÒß«ó ó ßÑ¬Ò¡ñÒ
+
+	{SplineRadius 3}		; «úÓá¡¿þÑ¡¿Ñ Óáñ¿Òßá »«ó«Ó«Ôá ¡á ß»½á®¡áÕ, ¼ÑÔÓ«ó
+
+)
+===== locomotion /properties/railway.ext
+(define "locomotion"
+
+	{MaxSpeed	25	}		; ¼á¬ß¿¼á½ý¡á´ ß¬«Ó«ßÔý, kmph
+
+	{StartTime	10	}		; óÓÑ¼´ Óáºú«¡á ñ« ¼á¬ß. ß¬«Ó«ßÔ¿ ß 0, seconds
+
+	{BrakeTime	5	}		; óÓÑ¼´ Ô«Ó¼«ªÑ¡¿´ ß ¼á¬ß. ß¬«Ó«ßÔ¿ ñ« 0, seconds
+
+	{StopTime	10	}		; óÓÑ¼´ «ßÔá¡«ó¬¿ »«ß½Ñ «Ô¬½¯þÑ¡¿´ ñó¿úáÔÑ½´ ß ¼á¬ß. ß¬«Ó«ßÔ¿ ñ« 0, seconds
+
+)
+===== seat_human /properties/tank_crew.ext
+(define "seat_human"
+
+	{placer
+
+		{place "%place" {LinkBone "%bone"} {openForCrush}}
+
+	}
+
+	{boarder
+
+		{door "%door"}
+
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+
+	}
+
+)
+===== crew_4_human /properties/tank_crew.ext
+(define "crew_4_human"
+
+	("crew_3_human")
+
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(main))
+
+)
+===== armor_heavy /properties/tank_unarmed.ext
+(define "armor_heavy"
+
+    ("armor_tank" t(6) track_b(20) bod(%body) tur(%turret) en(40) gun(45) dur(2) thr(0.8) pierce_dur(999))
+
+    ("components_tank" repair(3))
+
+    {sensor
+
+        {visor "view-around"
+
+            {vision "none"}
+
+            {bone "basis"}
+
+        }
+
+        {visor "main"
+
+            {vision "tank_main-h"}
+
+        }
+
+    }
+
+)
+===== locomotion /properties/tank_unarmed.ext
+(define "locomotion"
+
+    {MaxSpeed       25 } ; ýÓÛ±ÞýÓÙ³ÝÓ  ±Û¯­¯±‗³, kmph
+
+    {StartTime      6  } ; Ô­Õý  ­ÓþÒ¯ÝÓ õ¯ ýÓÛ±. ±Û¯­¯±‗Þ ± 0, seconds
+
+    {TurnTime       5  } ; Ô­Õý  ÝÓ ­ÓþÔ¯­¯‗ ÝÓ 360 Ò­Óõ¾±¯Ô ´­Þ ýÓÛ±. ±Û¯­¯±‗Þ ­ÓþÔ¯­¯‗Ó, seconds
+
+    {TurnStart      0.8} ; Ô­Õý  ­ÓþÒ¯ÝÓ õ¯ ýÓÛ±. ¾ÒÙ¯Ô¯Ú ±Û¯­¯±‗Þ ± 0, seconds
+
+    {BrakeTime      0.6} ; Ô­Õý  ‗¯­ý¯µÕÝÞ  ± ýÓÛ±. ±Û¯­¯±‗Þ õ¯ 0, seconds
+
+    {StopTime       1  } ; Ô­Õý  ¯±‗ÓÝ¯ÔÛÞ ´¯±ÙÕ ¯‗ÛÙ■¸ÕÝÞ  õÔÞÒÓ‗ÕÙ  ± ýÓÛ±. ±Û¯­¯±‗Þ õ¯ 0, seconds
+
+    {TurnRadius     5  } ; ýÞÝ. ­ÓõÞ¾± ­ÓþÔ¯­¯‗Ó, meter
+
+    {TurnStop       0.5} ; Ô­Õý  ¯±‗ÓÝ¯ÔÛÞ ± ýÓÛ±. ¾ÒÙ¯Ô¯Ú ±Û¯­¯±‗Þ õ¯ 0, seconds
+
+    {Gears 0.2 0.3 0.5 0.7 1.0} ; ´Õ­ÕõÓ‗¯¸Ý¹Õ Û¯²¶-‗¹ Û¯­¯ßÛÞ ´Õ­ÕõÓ¸
+
+    {RearGears 0.2 0.5} ; ´Õ­ÕõÓ‗¯¸Ý¹Õ Û¯²¶-‗¹ Û¯­¯ßÛÞ ´Õ­ÕõÓ¸
+
+    {GearSwitchDelay 0.5}   ; Ô­Õý  ±ýÕÝ¹ ÝÓ´­ÓÔÙÕÝÞ  õÔÞµÕÝÞ , sec
+
+)
+===== shield /properties/vehicle.ext
+(define "shield"
+
+	{armor
+
+		{setting "shield"
+
+			{thickness %0}
+
+			{volumes "shield*"}
+
+		}
+
+	}
+
+)
+===== tank_trace /properties/vehicle.ext
+(define "tank_trace"
+
+	("tank_trace_ex" fx(%fx) step(%step) len(%len) boneleft("FXtraceL1") boneright("FXtraceR1"))
+
+)

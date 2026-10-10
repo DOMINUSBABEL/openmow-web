@@ -1,0 +1,17 @@
+morphine ['/set/stuff/med/morphine']
+johnson_m1941 ['/set/stuff/mgun/johnson_m1941']
+m24x5 ['/entity/inventory/-weapon/grenade_m24x5/m24x5.dds', '/entity/inventory/-weapon/grenade_m24x5/m24x5.mtl', '/set/stuff/grenade/02 grenade_at/m24x5.grenade']
+pwm1 ['/entity/inventory/-weapon/grenade_pwm1/pwm1.mtl', '/entity/inventory/-weapon/grenade_pwm1/pwm1.ply', '/set/stuff/grenade/02 grenade_at/pwm1.grenade']
+satchel ['/set/stuff/grenade/01 grenade_ap/satchel.grenade']
+valter ['/entity/inventory/-weapon/valter/valter.dds', '/entity/inventory/-weapon/valter/valter.def', '/entity/inventory/-weapon/valter/valter.mdl', '/entity/inventory/-weapon/valter/valter.ply', '/set/stuff/pistol/valter', '/sound/weapon/reload/valter.wav']
+b33r ['/entity/inventory/b33r/b33r.dds', '/entity/inventory/b33r/b33r.def', '/entity/inventory/b33r/b33r.mdl', '/entity/inventory/b33r/b33r.mtl', '/entity/inventory/b33r/b33r.ply', '/set/stuff/special/b33r']
+winterhat ['/entity/inventory/-equipment/head/winterhat/winterhat.def', '/entity/inventory/-equipment/head/winterhat/winterhat.mdl', '/set/stuff/head/winterhat']
+tank_cap2_ger ['/entity/inventory/-equipment/head/tank_cap2_ger/tank_cap2_ger.def', '/entity/inventory/-equipment/head/tank_cap2_ger/tank_cap2_ger.mdl', '/set/stuff/head/tank_cap2_ger']
+pistol ['/entity/construction/entourage/barrow_rus/common/pistol.mtl', '/set/ability/pistol.set', '/set/stuff/ammo/pistol.ammo', '/set/stuff/pistol/pistol.pattern', '/set/stuff/_settings/pistol.fsm', '/sound/weapon/reload/pistol.wav']
+bullet75 ['/set/stuff/shell/bullet75.ap.ammo', '/set/stuff/shell/bullet75.apcr.ammo', '/set/stuff/shell/bullet75.fg.ammo']
+mention /set/breed/mp/eng/medic.set
+mention /set/breed/mp/ger/medic.set
+mention /set/breed/mp/jap/medic.set
+mention /set/breed/mp/rus/medic.set
+mention /set/breed/mp/usa/medic.set
+['/set/ballistics.set', '/set/colliders.set', '/set/damage_report.set', '/set/detect.set', '/set/emoticons.set', '/set/entitymanager.set', '/set/enumerator.set', '/set/formation.set', '/set/fxmanager.set', '/set/grass.set', '/set/interface.set', '/set/level_of_detail.inc', '/set/level_of_detail.set', '/set/level_of_detail_manual.set', '/set/level_of_detail_zoom.set', '/set/material.set', '/set/pather.set', '/set/registry.reg', '/set/small.firearms.accuracy', '/set/talk.set', '/set/textures.set', '/set/tips.set', '/set/tutorials.set', '/set/unmasking.set']

@@ -1,0 +1,46 @@
+=== OpenMoW-Web Navigation & Obstacle Census (T08) ===
+Generated across all 15 in-scope skirmish missions.
+
+1. Terrain Dimensions and Grid Size (20 GEM units = 1 meter):
+01_usa-overlord      Verts:20867  X:[-4429..413] Y:[-8150..6260] Z:[-53..363] Size_m:(242m x 720m, dZ=20.8m)
+02_usa-carentan      Verts:26307  X:[-4429..413] Y:[-8150..6260] Z:[-96..128] Size_m:(242m x 720m, dZ=11.2m)
+03_usa-ardennes      Verts:23938  X:[-4429..413] Y:[-8150..6260] Z:[-96..222] Size_m:(242m x 720m, dZ=15.9m)
+01_ger-caen          Verts:20801  X:[-4429..413] Y:[-8150..6260] Z:[-81..293] Size_m:(242m x 720m, dZ=18.7m)
+02_ger-sthilaire     Verts:24655  X:[-4429..413] Y:[-8150..6260] Z:[-130..172] Size_m:(242m x 720m, dZ=15.1m)
+03_ger-marketgarden  Verts:21649  X:[-4429..413] Y:[-8150..6260] Z:[-13..241] Size_m:(242m x 720m, dZ=12.7m)
+01_eng-battleaxe     Verts:22677  X:[-4429..413] Y:[-8150..6260] Z:[-66..217] Size_m:(242m x 720m, dZ=14.1m)
+02_eng-torch         Verts:29804  X:[-4488..413] Y:[-8150..6260] Z:[-206..208] Size_m:(245m x 720m, dZ=20.7m)
+03_eng-arnhem        Verts:24360  X:[-4429..413] Y:[-8150..6260] Z:[-124..181] Size_m:(242m x 720m, dZ=15.2m)
+01_rus-smolensk      Verts:83128  X:[-4429..413] Y:[-8150..6260] Z:[-122..70] Size_m:(242m x 720m, dZ=9.6m)
+02_rus-koenigsberg   Verts:29259  X:[-4429..428] Y:[-8150..6260] Z:[-95..95] Size_m:(243m x 720m, dZ=9.5m)
+03_rus-manchuria     Verts:26207  X:[-4429..413] Y:[-8150..6260] Z:[-193..130] Size_m:(242m x 720m, dZ=16.1m)
+01_jap-khalkhingol   Verts:29609  X:[-4429..413] Y:[-8150..6260] Z:[-96..461] Size_m:(242m x 720m, dZ=27.8m)
+02_jap-singapore     Verts:30305  X:[-4429..413] Y:[-8150..6260] Z:[-63..435] Size_m:(242m x 720m, dZ=24.9m)
+03_jap-iwojima       Verts:21525  X:[-4429..413] Y:[-8150..6260] Z:[-156..176] Size_m:(242m x 720m, dZ=16.6m)
+
+Grid Resolution: 1 meter (20 GEM units).
+Typical grid dimensions: ~245 cells (X) x ~720 cells (Y) = ~176,400 cells total.
+Memory footprint per map grid: ~176 KB.
+
+2. Placed Entities & Obstacles (0.mi + map):
+  01_usa-overlord          : 9377   entities, 2367   obstacles
+  02_usa-carentan          : 13000  entities, 3681   obstacles
+  03_usa-ardennes          : 6262   entities, 2130   obstacles
+  01_ger-caen              : 8072   entities, 1917   obstacles
+  02_ger-sthilaire         : 13015  entities, 7446   obstacles
+  03_ger-marketgarden      : 8421   entities, 2717   obstacles
+  01_eng-battleaxe         : 8780   entities, 2478   obstacles
+  02_eng-torch             : 8082   entities, 4114   obstacles
+  03_eng-arnhem            : 10789  entities, 3763   obstacles
+  01_rus-smolensk          : 8898   entities, 2936   obstacles
+  02_rus-koenigsberg       : 11407  entities, 6853   obstacles
+  03_rus-manchuria         : 4746   entities, 2234   obstacles
+  01_jap-khalkhingol       : 5573   entities, 2155   obstacles
+  02_jap-singapore         : 8188   entities, 2144   obstacles
+  03_jap-iwojima           : 8562   entities, 2208   obstacles
+
+3. Obstacle Geometry Breakdown across MDL files:
+  - Obb2 (Oriented Bounding Box 2D): 98.2% (Center, Extent [half-size], Axis [direction], Rotate [flag])
+  - Circle2 (2D Circle): ~0.3% (Center, Radius)
+  - Polygon2 (2D Convex/Simple Polygon): ~1.5% (Vertex list)
+  - Terrain slope: cells where normal nz < 0.707 (slope > 45 deg) marked impassable.

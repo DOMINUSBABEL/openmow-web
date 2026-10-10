@@ -1,0 +1,6 @@
+.cache/
+web/test/fixtures/
+web/dist/
+web/node_modules/
+*.pyc
+__pycache__/
