@@ -1,0 +1,45 @@
+{
+  "userId": 5711570733,
+  "userName": "dominusbabl",
+  "universeId": 10772595182,
+  "placeId": 133837357200651,
+  "gameName": "War of Men [WWII Tactical RTS & Direct Control]",
+  "gameUrl": "https://www.roblox.com/games/133837357200651/War-of-Men",
+  "createDashboardUrl": "https://create.roblox.com/dashboard/creations/experiences/10772595182/overview",
+  "publishedRevisionId": "3",
+  "hasPublishedVersion": true,
+  "moderationState": "Approved",
+  "placeState": "Active",
+  "mediaUploaded": {
+    "icon_512": {
+      "status": 200,
+      "targetId": 3675024097979831,
+      "file": "assets/WarOfMen_Icon_512x512.png"
+    },
+    "thumbnails": [
+      {
+        "file": "assets/WarOfMen_Thumb_1_Normandy.png",
+        "status": 200,
+        "targetId": 6595146786447116
+      },
+      {
+        "file": "assets/WarOfMen_Thumb_2_ArmorClash.png",
+        "status": 200,
+        "targetId": 8648214195286318
+      },
+      {
+        "file": "assets/WarOfMen_Thumb_3_DirectControl.png",
+        "status": 200,
+        "targetId": 6547484678710335
+      }
+    ],
+    "trailer_mp4": {
+      "file": "assets/WarOfMen_Trailer_1080p.mp4",
+      "resolution": "1920x1080",
+      "fps": 30,
+      "codec": "H.264 + AAC"
+    }
+  },
+  "placeUploadHttpStatus": 200,
+  "placeUploadOperation": "operations/6d72de14-1e77-4620-8d70-1438666519bc"
+}
