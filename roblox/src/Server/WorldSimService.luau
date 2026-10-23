@@ -50,6 +50,8 @@ export type UnitEntity = {
 	model: Model?,
 	walkCycle: number,
 	directControlUntil: number,
+	hasExplicitOrder: boolean,
+	hasExplicitTarget: boolean,
 }
 
 export type FlagState = {
@@ -544,6 +546,10 @@ local function updateUnitModelTransform(unit: UnitEntity, dt: number, isMoving: 
 	end
 end
 
+function WorldSimService.syncUnitModelImmediate(unit: UnitEntity, isMoving: boolean?)
+	updateUnitModelTransform(unit, 0.05, isMoving == true)
+end
+
 function WorldSimService.spawnUnit(templateId: string, team: number, faction: WarOfMenCatalog.FactionId, pos: Vector3, yaw: number): UnitEntity?
 	local tpl = WarOfMenCatalog.UNIT_TEMPLATES[templateId]
 	if not tpl then
@@ -582,6 +588,8 @@ function WorldSimService.spawnUnit(templateId: string, team: number, faction: Wa
 		model = nil,
 		walkCycle = 0,
 		directControlUntil = 0,
+		hasExplicitOrder = false,
+		hasExplicitTarget = false,
 	}
 
 	u.model = buildUnitModel(u)
@@ -673,36 +681,54 @@ function WorldSimService.loadMission(missionId: string)
 
 	WorldSimService.buildBattlefieldGeometry(mission)
 
-	-- Despliegue Inicial de Fuerzas Aliadas (Team 0) y del Eje/Oponente (Team 1)
+	-- Despliegue Inicial Balanceado de Fuerzas Aliadas (Team 0) y del Eje/Oponente (Team 1)
 	local pReinf = WarOfMenCatalog.getReinforcementsForFaction(mission.playerFaction)
 	local eReinf = WarOfMenCatalog.getReinforcementsForFaction(mission.enemyFaction)
 
 	if #pReinf >= 1 then
 		for i, tplId in ipairs(pReinf[1].units) do
-			WorldSimService.spawnUnit(tplId, 0, mission.playerFaction, Vector3.new(-78 - (i % 2) * 5, 0, -22 + i * 5), math.rad(90))
+			local u = WorldSimService.spawnUnit(tplId, 0, mission.playerFaction, Vector3.new(-98 - (i % 2) * 6, 0, -34 + i * 6.5), math.rad(90))
+			if u then
+				u.targetPos = Vector3.new(-48 - (i % 2) * 4, 0, -30 + i * 5)
+			end
 		end
 	end
 	if #pReinf >= 2 then
 		for i, tplId in ipairs(pReinf[2].units) do
-			WorldSimService.spawnUnit(tplId, 0, mission.playerFaction, Vector3.new(-74 - (i % 2) * 5, 0, 12 + i * 5), math.rad(90))
+			local u = WorldSimService.spawnUnit(tplId, 0, mission.playerFaction, Vector3.new(-98 - (i % 2) * 6, 0, 10 + i * 6.5), math.rad(90))
+			if u then
+				u.targetPos = Vector3.new(-48 - (i % 2) * 4, 0, 14 + i * 5)
+			end
 		end
 	end
 	if #pReinf >= 4 then
-		WorldSimService.spawnUnit(pReinf[4].units[1], 0, mission.playerFaction, Vector3.new(-92, 0, 0), math.rad(90))
+		local u = WorldSimService.spawnUnit(pReinf[4].units[1], 0, mission.playerFaction, Vector3.new(-114, 0, 0), math.rad(90))
+		if u then
+			u.targetPos = Vector3.new(-62, 0, 0)
+		end
 	end
 
 	if #eReinf >= 1 then
 		for i, tplId in ipairs(eReinf[1].units) do
-			WorldSimService.spawnUnit(tplId, 1, mission.enemyFaction, Vector3.new(78 + (i % 2) * 5, 0, -22 + i * 5), math.rad(-90))
+			local u = WorldSimService.spawnUnit(tplId, 1, mission.enemyFaction, Vector3.new(98 + (i % 2) * 6, 0, -34 + i * 6.5), math.rad(-90))
+			if u then
+				u.targetPos = Vector3.new(48 + (i % 2) * 4, 0, -30 + i * 5)
+			end
 		end
 	end
 	if #eReinf >= 2 then
 		for i, tplId in ipairs(eReinf[2].units) do
-			WorldSimService.spawnUnit(tplId, 1, mission.enemyFaction, Vector3.new(74 + (i % 2) * 5, 0, 12 + i * 5), math.rad(-90))
+			local u = WorldSimService.spawnUnit(tplId, 1, mission.enemyFaction, Vector3.new(98 + (i % 2) * 6, 0, 10 + i * 6.5), math.rad(-90))
+			if u then
+				u.targetPos = Vector3.new(48 + (i % 2) * 4, 0, 14 + i * 5)
+			end
 		end
 	end
 	if #eReinf >= 3 then
-		WorldSimService.spawnUnit(eReinf[3].units[1], 1, mission.enemyFaction, Vector3.new(92, 0, 0), math.rad(-90))
+		local u = WorldSimService.spawnUnit(eReinf[3].units[1], 1, mission.enemyFaction, Vector3.new(114, 0, 0), math.rad(-90))
+		if u then
+			u.targetPos = Vector3.new(62, 0, 0)
+		end
 	end
 
 	NetProtocol.fireAllClients(NetProtocol.EVENTS.BattleBannerBroadcast, {
@@ -915,7 +941,11 @@ function WorldSimService.stepSimulation(dt: number)
 				local weapon = WarOfMenCatalog.WEAPONS[u.weaponId]
 				if weapon then
 					local target = if u.targetUnitId then WorldSimService.units[u.targetUnitId] else nil
-					if not target or target.hp <= 0 or (target.pos - u.pos).Magnitude > weapon.range * 1.1 then
+					if not target or target.hp <= 0 then
+						u.targetUnitId = nil
+						u.hasExplicitTarget = false
+						target = nil
+					elseif not u.hasExplicitTarget and (target.pos - u.pos).Magnitude > weapon.range * 1.05 then
 						u.targetUnitId = nil
 						target = nil
 					end
@@ -923,6 +953,9 @@ function WorldSimService.stepSimulation(dt: number)
 					if target then
 						local d = (target.pos - u.pos).Magnitude
 						if d <= weapon.range then
+							if u.hasExplicitTarget then
+								u.targetPos = nil
+							end
 							local aimDir = target.pos - u.pos
 							if aimDir.Magnitude > 0.1 then
 								u.turretYaw = math.atan2(aimDir.X, aimDir.Z)
@@ -934,8 +967,8 @@ function WorldSimService.stepSimulation(dt: number)
 								u.cooldownTimer = weapon.cooldown
 								WorldSimService.fireWeaponAt(u, target, u.weaponId)
 							end
-						elseif not u.targetPos then
-							-- Acercarse hasta entrar en rango de tiro
+						elseif u.hasExplicitTarget then
+							-- Avanzar hacia el objetivo ordenado explícitamente por el jugador hasta entrar en rango
 							u.targetPos = target.pos
 						end
 					end
